@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node ./bin/ecommerce",
-    "dev": "nodemon ./bin/ecommerce"
+    "start": "nodemon ./bin/ecommerce"
   },
   "keywords": [],
   "author": "",
