@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 require("dotenv").config();
-// const cors=require("cors");
+const cors = require("cors");
 const { mongooseConnection } = require("./config/db");
 
 const app = express();
@@ -28,14 +28,14 @@ app.use(loggerMiddleware);
 app.use(responseMiddleware);
 app.use(express.static("public"));
 
-// app.use(cors());
-// app.use(
-//   cors({
-//     origin:["http://localhost:3000", "http://68.183.112.7", "http://localhost:5173/"],
-//     methods:"GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials:true,
-//   })
-// )
+app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:3001", "http://68.183.112.7", "http://localhost:5173/"],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
